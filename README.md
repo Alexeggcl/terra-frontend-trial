@@ -194,3 +194,18 @@ Why this approach:
 - Frees memory and avoids resource leaks by removing unused elements.
 - Avoids CSS conflicts or layout shifts by simply toggling class state.
 - Future-proof: easy to reuse the `.is-hidden` class pattern elsewhere if needed.
+
+## 🛠 Task 2 – Accordion Arrow States
+
+### Analysis
+By default, all accordion arrows pointed down, regardless of whether the section was open or closed. This made it unclear to users which sections were expanded.
+
+### Solution
+I leveraged the Collapsify library, which automatically adds the class `--is-active` to the header button of an open accordion item. Using SCSS, I created a selector that targets the arrow icon (`.c--accordion-a__item__hd__artwork`) when its parent button has the `--is-active` class. This rotates the arrow upwards when the section is open, and downwards when closed. The transition is smooth for a polished user experience.
+
+### Reasoning
+Why this approach:
+- No JS changes required: Collapsify already manages the state and classes.
+- Pure CSS solution: maximizes performance and maintainability.
+- Clear visual feedback for users, improving usability and accessibility.
+- Easy to extend or customize for future design changes.

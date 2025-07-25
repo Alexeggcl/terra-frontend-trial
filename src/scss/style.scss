@@ -144,11 +144,16 @@ body{
                 position:absolute;
                 right:0;
                 top:0;
-                transform: translateY(25px) scale(1.8) rotate(180deg);
+                transform: translateY(25px) scale(1.8) rotate(0deg);
                 pointer-events: none;
+                transition: transform 0.3s;
             }
         }
     } 
+}
+
+.c--accordion-a__item__hd--is-active .c--accordion-a__item__hd__artwork {
+    transform: translateY(25px) scale(1.8) rotate(180deg);
 }
 
 
