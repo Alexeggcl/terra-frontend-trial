@@ -83,6 +83,15 @@ class Project{
                 delay:0.5,
                 opacity:0,
                 duration:0.5,
+                onComplete: () => {
+                  const preloader = document.querySelector('.c--preloader-a');
+                  if(preloader){
+                    preloader.classList.add('is-hidden');
+                    setTimeout(()=>{
+                      preloader.parentNode.removeChild(preloader);
+                    },500);
+                  }
+                }
             })
      
         }

@@ -169,3 +169,28 @@ Once trial is finished please share repo with us and deploy it to netlify/vercel
 ---
 
 **Note**: This project uses Astro as a build tool, but you can treat `.astro` files similarly to HTML files. The focus is on your HTML, SCSS, and JavaScript skills, not Astro-specific knowledge.
+
+# Completed Tasks Overview
+
+## 🛠 Task 1 – Fix Interaction Issues
+
+### Analysis
+Although the preloader faded out visually via a GSAP animation, it continued to occupy the full viewport with `position: fixed` and a very high `z-index`. This blocked all user interaction with the underlying content, including keyboard navigation and screen reader access.
+
+### Solution
+I created a CSS class `.is-hidden` to:
+- Set `opacity: 0` and `pointer-events: none` to eliminate both visibility and interactivity, ensuring accessibility for all users.
+- Apply a smooth fade-out using `transition: opacity` for a polished experience.
+
+In the GSAP timeline's `onComplete` callback:
+1. I add the `.is-hidden` class to the `.c--preloader-a` element.
+2. After the transition, I remove the element from the DOM (using a `setTimeout`) to free up resources and prevent any accidental blocking.
+
+### Reasoning
+Why this approach:
+- Minimal and efficient DOM manipulation.
+- Guarantees a smooth user experience (no abrupt disappearance or interaction lag).
+- Improves accessibility by removing obstacles for keyboard and assistive technology users.
+- Frees memory and avoids resource leaks by removing unused elements.
+- Avoids CSS conflicts or layout shifts by simply toggling class state.
+- Future-proof: easy to reuse the `.is-hidden` class pattern elsewhere if needed.
