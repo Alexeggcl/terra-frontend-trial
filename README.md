@@ -209,3 +209,16 @@ Why this approach:
 - Pure CSS solution: maximizes performance and maintainability.
 - Clear visual feedback for users, improving usability and accessibility.
 - Easy to extend or customize for future design changes.
+
+## 🛠 Task 5 – Fix RevealItem Animation Triggers
+
+### Analysis
+- There was an issue with instance initialization that prevented animations from working correctly.
+
+### Solution
+- Fixed the instance initialization in Main.js to ensure they are stored properly instead of being executed as functions.
+- Added checks for the play/pause buttons to prevent errors if they don't exist in the DOM.
+
+### Reasoning
+- Proper instance initialization removes errors and ensures that all animations run as expected.
+- Button existence checks improve the robustness of the code and prevent unnecessary runtime errors.

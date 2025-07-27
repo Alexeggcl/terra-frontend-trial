@@ -19,19 +19,23 @@ class Main{
 
 
         this.instances['RevealInstances'] = [];
-        this.DOM.revealItems.forEach((item,index) => {
-            this.instances['RevealInstances'][index](new RevealItem({ element: item }));
+        this.DOM.revealItems.forEach((item, index) => {
+            this.instances['RevealInstances'][index] = new RevealItem({ element: item });
         });
 
     }
 
     events(){
-        this.DOM.playBtn.addEventListener("click", () => {
-            console.log("Play button clicked");
-        });
-        this.DOM.pauseBtn.addEventListener("click", () => {
-            console.log("Pause button clicked");
-        });
+        if (this.DOM.playBtn) {
+            this.DOM.playBtn.addEventListener("click", () => {
+                console.log("Play button clicked");
+            });
+        }
+        if (this.DOM.pauseBtn) {
+            this.DOM.pauseBtn.addEventListener("click", () => {
+                console.log("Pause button clicked");
+            });
+        }
     }
 }
 export default Main;
