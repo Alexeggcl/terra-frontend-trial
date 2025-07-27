@@ -74,6 +74,7 @@ class Project{
                       new Main({
                         boostify: this.boostify,
                         debug: this.terraDebug,
+                        lotties: this.DOM.lotties
                       });
           
                     }

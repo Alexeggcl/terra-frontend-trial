@@ -222,3 +222,17 @@ Why this approach:
 ### Reasoning
 - Proper instance initialization removes errors and ensures that all animations run as expected.
 - Button existence checks improve the robustness of the code and prevent unnecessary runtime errors.
+
+## 🛠 Task 6 – Lottie Animation Controls
+
+### Analysis
+To control Lottie animations in a scalable and maintainable way, a system was implemented using custom HTML attributes (`data-name` and `data-lottie`). This allows each Play/Pause button to be dynamically linked to its corresponding animation, without hardcoding names in the JavaScript.
+
+### Solution
+- Each `.js--lottie-element` has a unique `data-name` attribute.
+- Each Play/Pause button has a `data-lottie` attribute matching the `data-name` of the animation it should control.
+- The JavaScript selects all Play/Pause buttons and, on click, reads the `data-lottie` value to identify the Lottie instance in `window.WL` and execute the appropriate method (`play()` or `pause()`).
+
+### Reasoning
+- This approach keeps the code clean, scalable, and easy to maintain.
+- It allows for multiple animations and controls without conflicts or hardcoded dependencies.
