@@ -2,6 +2,7 @@
 
 @use "sass:map";
 @use './reset/reset.scss';
+@use './terraStyle.scss';
 
 // variables scss, use it always as map.get($color-options, {letter});
 $color-a: #0f0f0f;
@@ -43,18 +44,23 @@ $measure: 0.5rem; /* 0.5rem = 8px */
     font-optical-sizing: auto;
     font-weight: 300 400;
     font-style: normal;
+    font-size: 16px
   
 }
 
-.f--font-a{
+html {
+    font-size: 16px
+}
+
+.f--font-a2{
     font-size:50px;
 }
 
-.f--font-b{
+.f--font-b2{
     font-size: 35px;
 }
 
-.f--font-c{
+.f--font-c2{
     font-size: 25px;
 }
 
@@ -122,7 +128,7 @@ body{
     width:100%;
     align-items: center;
     &__title{
-        @extend .f--font-a;
+        @extend .f--font-a2;
         text-align: center;
         color: map.get($color-options, b);
     }
@@ -147,7 +153,7 @@ body{
                 transform: translateY(25px) scale(1.8) rotate(0deg);
                 pointer-events: none;
                 transition: transform 0.3s;
-            }
+      }
         }
     } 
 }
@@ -175,4 +181,81 @@ body{
 .c--lottie-a{
     height:300px;
     width: 100%;
+}
+
+.c--component-b {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 584/311;
+    max-width: 584px;
+    border-radius: clamp(8px, 4vw, 24px);
+    background: #0F0F0F;
+    overflow: hidden;
+    box-shadow: 0 0.7vw 3vw rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: clamp(8px, 4vw, 24px);
+    font-size: clamp(12px, 4vw, 24px);
+    margin: 0 auto;
+}
+
+.c--component-b__logo {
+    aspect-ratio: 165/48.18;
+    width: calc(100% * 165 / 522);
+    max-width: 165px;
+    height: auto;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.c--component-b__title-group {
+    position: absolute;
+    width: clamp(1px, 80%, 389px);
+    height: clamp(1px, 15%, 80px);
+    bottom: clamp(1px, 4vw, 24px);
+    left: clamp(1px, 4vw, 24px);
+    margin-bottom: clamp(1px, 4vw, 25.36px);
+}
+
+.c--component-b__title {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(1px, 11.7vw, 80px);
+    line-height: 100%;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    letter-spacing: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.c--component-b__title--pink {
+    overflow: hidden;
+    height: clamp(1px, 6.8vw, 47px);
+    color: #F58DD7;
+    user-select: none;
+}
+
+.c--component-b__title--green {
+    overflow: hidden;
+    height: auto;
+    color: #2d9f66;
+}
+
+
+.c--index-section {
+    @extend .u--pt-10;
+    @extend .u--pb-15;
+    @extend .u--pt-tabletm-8;
+    @extend .u--pt-tablets-7;
+    @extend .u--pb-tablets-10;
+    @extend .u--pt-mobile-4;
+    @extend .u--pb-mobile-5;
 }
