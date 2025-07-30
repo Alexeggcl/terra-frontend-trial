@@ -56,9 +56,6 @@ class Project{
                   selector: this.DOM.lotties,
                 });
             }
-            
-            // Simulate another async operation
-            await new Promise(resolve => setTimeout(resolve, 2300));
      
         } catch (error) {
             console.error("Error during project initialization:", error);

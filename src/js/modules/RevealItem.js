@@ -43,9 +43,9 @@ class RevealItem {
         gsap.from(this.DOM.element, {
             scrollTrigger: {
                 trigger: this.DOM.element,
-                start: "top 90%",
+                start: "top 95%",
                 toggleActions: "play none none reverse",
-                markers: true,
+                markers: false,
             },
             opacity: 0,
             y: 50,
