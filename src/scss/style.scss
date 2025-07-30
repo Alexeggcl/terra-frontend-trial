@@ -135,33 +135,41 @@ body{
 }
 
 
-.c--accordion-a{
-    &__item{
-        &__hd{
-            padding:$measure*2 0;
-            color: map.get($color-options, a);
-            border-bottom:1px solid #fff;
-            display: block;
-            width:100%;
-            text-align: left;
-            position:relative;
-            @extend .f--font-c;
-            &__artwork{
-                position:absolute;
-                right:0;
-                top:0;
-                transform: translateY(25px) scale(1.8) rotate(0deg);
-                pointer-events: none;
-                transition: transform 0.3s;
+.c--accordion-a {
+  &__item {
+    &__hd {
+      padding: $measure * 2 0;
+      color: map.get($color-options, a);
+      border-bottom: 1px solid #fff;
+      width: 100%;
+      text-align: left;
+      @extend .f--font-c2;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      padding-right: 15px; 
+      box-sizing: border-box; 
+
+      &__artwork {
+        flex-shrink: 0; 
+        margin-left: 10px; 
+        transform: translateY(0px) scale(1.8) rotate(0deg); 
+        pointer-events: none;
+        transition: transform 0.3s;
       }
-        }
-    } 
+      span { 
+        flex-grow: 1;
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
+      }
+    }
+  }
 }
 
 .c--accordion-a__item__hd--is-active .c--accordion-a__item__hd__artwork {
-    transform: translateY(25px) scale(1.8) rotate(180deg);
+  transform: translateY(0px) scale(1.8) rotate(180deg);
 }
-
 
 .c--btn-a{
     display: inline-block;
@@ -249,6 +257,115 @@ body{
     color: #2d9f66;
 }
 
+.c--component-a {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 1200/714;
+    margin: 0 auto;
+    --gap: clamp(8px, 2.67vw, 32px);
+}
+
+.c--component-a__box {
+    position: absolute;
+    border-radius: clamp(8px, 2vw, 24px);
+    display: flex;
+    align-items: end;
+    padding: clamp(8px, 2vw, 24px);
+}
+
+.c--component-a-box-align-base {
+    align-items: baseline
+}
+
+.c--component-a__text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(12px, 2.67vw, 32px);
+    line-height: clamp(14px, 3.17vw, 38px);
+    color: map.get($color-options, a);
+    width: 100%;
+    max-width: clamp(60px, 15.08vw, 181px);
+    height: auto;
+}
+
+.c--component-a__box--green-light {
+    width: 23%; 
+    height: 39.22%; 
+    left: 0%;
+    top: 0%;
+    background: map.get($color-options, d);
+}
+
+.c--component-a__box--green-dark {
+    width: 74.33%;
+    height: 68.07%; 
+    left: calc(23% + var(--gap));
+    top: 0%;
+    background: map.get($color-options, e);
+    --r: clamp(8px, 2vw, 24px);
+    --s: clamp(8px, 2vw, 24px);
+    --x: clamp(1px, 26.17vw, 362px);
+    --y: clamp(1px, 18.08vw, 265px);
+    --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
+    --_g: conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)), #0000 25%, #000 0);
+    --_d: (var(--s) + var(--r));
+    mask:
+        calc(100% - var(--_d) - var(--x)) 100% var(--_m),
+        100% calc(100% - var(--_d) - var(--y)) var(--_m),
+        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
+         calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
+        var(--_g) calc(-1*var(--_d) - var(--x)) 0,
+        var(--_g) 0 calc(-1*var(--_d) - var(--y));
+    mask-repeat: no-repeat;
+}
+
+.c--component-a__box--blue {
+    width: 33.5%; 
+    height: 67.37%;
+    left: 3.5%;
+    top: 38.1%;
+    background: map.get($color-options, f);
+    
+    --r: clamp(1px, 2vw, 24px);
+    --s: clamp(1px, 2vw, 24px);
+    --x: clamp(1px, 11.35vw, 159px);
+    --y: clamp(1px, 11.35vw, 159px);
+    
+    --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
+    --_g: conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)), #0000 25%, #000 0);
+    --_d: (var(--s) + var(--r));
+    
+    mask:
+        calc(100% - var(--_d) - var(--x)) 100% var(--_m),
+        100% calc(100% - var(--_d) - var(--y)) var(--_m),
+        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
+         calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
+        var(--_g) calc(-1*var(--_d) - var(--x)) 0,
+        var(--_g) 0 calc(-1*var(--_d) - var(--y));
+    mask-repeat: no-repeat;
+
+    transform: rotate(270deg);
+    writing-mode: vertical-lr;
+    
+}
+
+.c--component-a__box--yellow {
+    width: 23%;
+    height: 27.45%; 
+    left: calc(40.08% + var(--gap)); 
+    top: calc(68.07% + var(--gap)); 
+    background: map.get($color-options, g); 
+}
+
+.c--component-a__box--pink {
+    width: 31.58%; 
+    height: 71.43%; 
+    left: calc(65.75% + var(--gap));
+    top: calc(24.09% + var(--gap));
+    background: map.get($color-options, i);
+}
 
 .c--index-section {
     @extend .u--pt-10;
@@ -258,4 +375,16 @@ body{
     @extend .u--pb-tablets-10;
     @extend .u--pt-mobile-4;
     @extend .u--pb-mobile-5;
+    
+    @media (max-width: 580px) {
+        overflow-x: hidden; 
+        .f--col-12.u--pr-mobile-0.u--pl-mobile-0.u--mb-8 {
+            position: relative;
+            height: 300px;
+            overflow: visible;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
 }

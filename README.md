@@ -210,6 +210,61 @@ Why this approach:
 - Clear visual feedback for users, improving usability and accessibility.
 - Easy to extend or customize for future design changes.
 
+## 🛠 Task 3 Component A
+
+### Solution
+- **Result**: Naturally fluid scaling that maintains proportions
+- **Percentage-Based Positioning**: Converted all box dimensions and positions to percentages relative to the container
+- **Complex Mask Handling**: For boxes with internal rounded corners
+
+### Reasoning
+Why this approach succeeded:
+- **True responsiveness**: Component adapts to any container size naturally
+- **Maintainable code**: Percentage-based positioning is easier to understand and modify
+- **Performance optimized**: No transform calculations or GPU layers
+- **Design faithful**: Maintains exact proportional relationships from original design
+- **Future-proof**: Easy to extend with hover effects, animations, or layout changes
+- **Cross-browser compatible**: Uses well-supported CSS features
+- **Scalable system**: Pattern can be applied to other complex geometric layouts
+
+## 🛠 Task 3 Component B
+
+### Solution
+I developed ComponentB with the following key features:
+- **Responsive container**: Used `aspect-ratio: 584/311` to maintain design proportions while scaling
+- **Dynamic border-radius**: Implemented `clamp(8px, 4vw, 24px)` for proportional corner rounding
+- **Dual-color text effect**: Created overlapping green and pink text layers for visual impact
+- **Bottom-left positioning**: Positioned text in the corner with proper padding respect
+- **Responsive typography**: Used `clamp(16px, 6vw, 48px)` for scalable font sizes
+- **Proper centering**: Applied `margin: 0 auto` for horizontal centering without extra wrappers
+
+### Reasoning
+Why this approach:
+- **Scalable design**: Component works perfectly on all screen sizes without breaking
+- **Performance optimized**: Minimal CSS with efficient selectors and properties
+- **Maintainable code**: Clear structure that's easy to modify or extend
+- **Accessibility focused**: Proper semantic HTML and focus management
+- **Design faithful**: Pixel-perfect implementation matching Figma specifications
+- **Future-proof**: Uses modern CSS techniques that are well-supported
+
+### Alternative Approaches Considered
+
+During development, I evaluated several approaches for the dual-color text effect:
+
+#### 1. CSS `background-clip: text` Approach
+**Initial attempt**: Using gradient backgrounds with `background-clip: text` to create the color effect.
+
+**Why it was rejected**:
+- **Browser compatibility issues**: Limited support in older browsers
+
+#### 2. CSS-Generated Image Approach
+**Second attempt**: Creating the text as a CSS-generated image or using canvas to render the dual-color effect.
+
+**Why it was rejected**:
+- **Hacky solution**: Felt like a workaround rather than a proper implementation
+- **Maintenance overhead**: Any text changes would require regenerating images
+- **Performance impact**
+
 ## 🛠 Task 5 – Fix RevealItem Animation Triggers
 
 ### Analysis

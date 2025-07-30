@@ -1,22 +1,25 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import HeroA from '@components/hero/HeroA.astro';
+import ComponentB from '@components/componentB/ComponentB.astro';
+import ComponentA from '@components/componentA/ComponentA.astro';
+import headshotImg from '../assets/headshot.webp';
+import { Image } from 'astro:assets';
 
 ---
 
 <Layout>
 	<HeroA />
-
-	<div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
+	<div class="c--index-section">
 		<div class="f--container">
 			<div class="f--row">
 				<div class="f--col-12 u--text-align-center">
-					<h2 class="f--font-b u--mb-4 ">Tabs section</h2>
+					<h2 class="f--font-b u--mb-4 u--mb-tabletm-2 u--mb-mobile-0 ">Tabs section</h2>
 				</div>
 			</div>
 			<div class="f--row">
-				<div class="f--col-8 f--offset-2">
-					<div class="c--accordion-a js--collapsify">
+				<div class="f--col-8 f--col-tabletm-10 f--col-mobile-12 f--offset-2 f--offset-tabletm-1 f--offset-mobile-0 ">
+					<div class="c--accordion-a js--collapsify f--offset-mobile-0" >
 						<div class="c--accordion-a__item">
 							<button class="c--accordion-a__item__hd"  data-collapsify-control="collapsify-0">
 								tempore nemo sed voluptatibus
@@ -47,40 +50,55 @@ import HeroA from '@components/hero/HeroA.astro';
 		</div>
 	</div>
 
-	<div class="u--pt-0 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
+	<div class="c--index-section">
 		<div class="f--container">
 			<div class="f--row">
-				<div class="f--col-6 f--offset-3 u--text-align-center js--reveal-item">
-					<img src="http://placeholder.terrahq.com/headshot.webp" alt="">
+				<div class="u--text-align-center js--reveal-item f--col-6 f--offset-3 f--col-tabletm-8 f--offset-tabletm-2 f--col-tablets-10 f--offset-tablets-1 f--col-mobile-12  f--offset-mobile-0">
+					<Image 
+						src={headshotImg} 
+						alt="Professional headshot" 
+						class="u--height-auto"
+						loading="lazy"
+						decoding="async"
+						data-priority="true"
+						widths={[240, 540, 720]}
+						sizes="(max-width: 480px) 240px, (max-width: 768px) 540px, 720px"
+					/>
 				</div>
 			</div>
 		</div>
 	</div>	
 
-	<div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
+	<div class="c--index-section">
 		<div class="f--container">
 			<div class="f--row">
 				<div class="f--col-12 u--text-align-center">
-					<h2 class="f--font-b u--mb-4 js--reveal-item">Lottie Section</h2>
+					<h2 class="f--font-b u--mb-4 u--mb-tabletm-2 u--mb-mobile-0 js--reveal-item">Lottie Section</h2>
 				</div>
 			</div>
 			<div class="f--row">
-				<div class="f--col-4 f--offset-4">
+				<div class="f--col-4 f--offset-4 f--col-tabletm-10 f--offset-tabletm-1 f--col-mobile-12 f--offset-mobile-0">
 					<div class="js--lottie-element c--lottie-a" data-name="lottie-example">
 
 					</div>
 				</div>
 			</div>
 			<div class="f--row">
-				<div class="f--col-4 f--offset-4 u--text-align-center">
-					<button class="c--btn-a js--play" data-lottie="lottie-example"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23 12l-22 12v-24l22 12zm-21 10.315l18.912-10.315-18.912-10.315v20.63z"/></svg></button>
-					<button class="c--btn-a js--pause" data-lottie="lottie-example"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M10 24h-6v-24h6v24zm10 0h-6v-24h6v24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z"/></svg></button>
+				<div class="f--col-4 f--offset-4 f--col-tabletm-10 f--offset-tabletm-1 f--col-mobile-12 f--offset-mobile-0 u--text-align-center">
+					<button class="c--btn-a js--play" data-lottie="lottie-example" aria-label="Play animation">
+						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+							<path d="M23 12l-22 12v-24l22 12zm-21 10.315l18.912-10.315-18.912-10.315v20.63z"/>
+						</svg>
+					</button>
+					<button class="c--btn-a js--pause" data-lottie="lottie-example" aria-label="Pause animation">
+						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+							<path d="M10 24h-6v-24h6v24zm10 0h-6v-24h6v24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z"/>
+						</svg>
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 
 	<div class="c--index-section">
 		<div class="f--container">
@@ -90,8 +108,8 @@ import HeroA from '@components/hero/HeroA.astro';
 				</div>
 			</div>
 			<div class="f--row">
-				<div class="f--col-12 ">
-					Component A
+				<div class="f--col-12 u--pr-mobile-0 u--pl-mobile-0 u--mb-8">
+					<ComponentA />
 				</div>
 				<div class="f--col-12 u--pr-mobile-0 u--pl-mobile-0">
 					<ComponentB />
@@ -100,15 +118,13 @@ import HeroA from '@components/hero/HeroA.astro';
 		</div>
 	</div>
 
-
-
-	<div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
+	<div class="c--index-section">
 		<div class="f--container">
 			<div class="f--row">
-				<div class="f--col-12  u--text-align-center">
-					<h2 class="f--font-b u--mb-8 js--reveal-item">Final Step</h2>
+				<div class="f--col-12 u--text-align-center">
+					<h2 class="f--font-b u--mb-8 u--mb-tabletm-6 u--mb-mobile-4 js--reveal-item">Final Step</h2>
 					<div class="f--row">
-						<div class="f--col-6 f--offset-3">
+						<div class="f--col-6 f--col-tabletm-8 f--col-mobile-10 f--offset-3 f--offset-tabletm-2 f--offset-mobile-1">
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci inventore sint mollitia modi corrupti quis consequuntur fugit quas voluptates nesciunt maxime praesentium, illum quod aut enim reiciendis ullam voluptatibus! Eum.</p>
 
 						</div>
@@ -117,14 +133,4 @@ import HeroA from '@components/hero/HeroA.astro';
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-	
-
-	
-
 </Layout>

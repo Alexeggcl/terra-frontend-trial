@@ -30,25 +30,25 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
-class RevealItem{
-    constructor(payload){
-        var { element } = payload;
+class RevealItem {
+    constructor(payload) {
+        const { element } = payload;
         this.DOM = {
             element: element,
         };
         this.init();
     }
-    init(){
+    init() {
 
         gsap.from(this.DOM.element, {
             scrollTrigger: {
                 trigger: this.DOM.element,
-                start: "top 80%",
+                start: "top 90%",
                 toggleActions: "play none none reverse",
-                markers: true, // Set to true for debugging
+                markers: true,
             },
             opacity: 0,
-            y:50,
+            y: 50,
             duration: 1,
             ease: "power2.out",
         });
