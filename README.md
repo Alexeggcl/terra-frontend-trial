@@ -265,6 +265,30 @@ During development, I evaluated several approaches for the dual-color text effec
 - **Maintenance overhead**: Any text changes would require regenerating images
 - **Performance impact**
 
+## 🛠 Task 4 – Responsive Design Implementation
+
+### Analysis
+The Figma design was only provided for desktop, so I needed to create tablet and mobile versions from scratch while keeping the design consistent and user-friendly across all devices.
+
+### Solution
+I used a **desktop-first approach** to make the site responsive:
+
+- **Desktop**: Started with the original design as the base
+- **Tablet**: Adjusted spacing and component sizes while keeping the same layout
+- **Mobile**: Reorganized content to work vertically
+
+Key changes made:
+- Made text sizes scale smoothly between screen sizes using `clamp()`
+- Ensured all buttons are easy to tap on mobile (44px minimum)
+- Made images and components scale proportionally
+
+### Reasoning
+Why desktop-first worked best:
+- Started with the complete design and adapted it down rather than building up
+- Easier to maintain since CSS overrides base styles instead of adding complexity
+- Matches how clients typically provide designs (desktop first)
+- Mobile feels like a thoughtful adaptation rather than an afterthought
+
 ## 🛠 Task 5 – Fix RevealItem Animation Triggers
 
 ### Analysis
