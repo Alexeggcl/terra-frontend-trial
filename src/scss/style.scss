@@ -1,5 +1,4 @@
 
-
 @use "sass:map";
 @use './reset/reset.scss';
 @use './terraStyle.scss';
@@ -45,7 +44,74 @@ $measure: 0.5rem; /* 0.5rem = 8px */
     font-weight: 300 400;
     font-style: normal;
     font-size: 16px
-  
+}
+
+// Accessibility utilities
+.u--sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.u--skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: map.get($color-options, f);
+    color: map.get($color-options, b);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 9999;
+    font-weight: 600;
+    font-size: 14px;
+    
+    &:focus {
+        top: 6px;
+        outline: 3px solid map.get($color-options, a);
+        outline-offset: 2px;
+    }
+}
+
+// Focus styles for better accessibility
+:focus-visible {
+    outline: 2px solid map.get($color-options, f) !important;
+    outline-offset: 2px !important;
+    border-radius: 2px;
+}
+
+// High contrast focus for buttons
+button:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid map.get($color-options, f) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px rgba(map.get($color-options, f), 0.2);
+}
+
+// Ensure interactive elements have minimum touch target size (44x44px minimum)
+button,
+[role="button"],
+[tabindex]:not([tabindex="-1"]) {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 html {
@@ -148,7 +214,31 @@ body{
       align-items: center; 
       justify-content: space-between;
       padding-right: 15px; 
-      box-sizing: border-box; 
+      box-sizing: border-box;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      // Accessibility improvements
+      &:hover {
+        background-color: rgba(map.get($color-options, f), 0.1);
+      }
+
+      &:focus-visible {
+        background-color: rgba(map.get($color-options, f), 0.15);
+        outline: 2px solid map.get($color-options, f);
+        outline-offset: 2px;
+      }
+
+      // Text wrapper for flex layout
+      &__text {
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
       &__artwork {
         flex-shrink: 0; 
@@ -157,11 +247,18 @@ body{
         pointer-events: none;
         transition: transform 0.3s;
       }
-      span { 
-        flex-grow: 1;
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        white-space: nowrap; 
+    }
+
+    // Improved content panel accessibility
+    &__bd {
+      padding: $measure * 2;
+      border-radius: 4px;
+      margin-top: $measure;
+      
+      // Focus within for better keyboard navigation
+      &:focus-within {
+        outline: 1px solid map.get($color-options, f);
+        outline-offset: 2px;
       }
     }
   }
@@ -180,9 +277,50 @@ body{
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    
+    // Ensure minimum touch target size
+    min-height: 44px;
+    min-width: 44px;
+    
+    // Improved focus styles
+    &:focus-visible {
+        outline: 3px solid map.get($color-options, a);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 5px rgba(map.get($color-options, d), 0.3);
+    }
+    
     &:hover{
         border-radius: 10px;
         background-color: rgba(map.get($color-options, d), 0.8);
+        transform: translateY(-1px);
+    }
+    
+    // Active state
+    &:active {
+        transform: translateY(0);
+    }
+    
+    // Pressed state for toggle buttons
+    &[aria-pressed="true"] {
+        background-color: map.get($color-options, e);
+        color: map.get($color-options, a);
+        
+        &:hover {
+            background-color: rgba(map.get($color-options, e), 0.8);
+        }
+    }
+    
+    // High contrast mode support
+    @media (prefers-contrast: high) {
+        border: 2px solid currentColor;
+        
+        &:focus-visible {
+            outline: 3px solid;
+            outline-offset: 3px;
+        }
     }
 }
 
@@ -272,6 +410,20 @@ body{
     display: flex;
     align-items: end;
     padding: clamp(8px, 2vw, 24px);
+    
+    // Accessibility improvements
+    &:focus-visible {
+        outline: 3px solid map.get($color-options, a);
+        outline-offset: 2px;
+        z-index: 10;
+    }
+    
+    // Hover state for better interactivity feedback
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
 }
 
 .c--component-a-box-align-base {

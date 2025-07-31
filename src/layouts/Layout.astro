@@ -16,6 +16,7 @@ import "@scss/terraStyle.scss";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Terra Frontend Trial</title>
+		<meta name="description" content="A comprehensive frontend development trial showcasing HTML, SCSS, and JavaScript skills in a modern accessible web application.">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -25,12 +26,12 @@ import "@scss/terraStyle.scss";
 		<PreloaderA />
 		<HeaderA/>
 		
-		<div class="c--page-a">
+		<main class="c--page-a" id="main-content" role="main">
 			<div class="c--page-a__ft-items">
 				<slot />
 			</div>
 				
-		</div>
+		</main>
 		
 	</body>
 </html>
