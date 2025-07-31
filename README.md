@@ -367,3 +367,11 @@ I implemented a comprehensive performance optimization strategy:
 - **Critical Resource Prioritization**: Ensured essential content loads first, allowing users to see and interact with the page faster
 - **Progressive Enhancement**: Built the site to work on slower connections while providing enhanced features for faster ones
 - **Efficient Resource Management**: Reduced the number of server requests and optimized the timing of when resources load
+
+---
+
+## 🚀 Live Demo
+
+The completed project is deployed and available at:
+
+**https://terra-frontend-trial-alejandroeggcl.vercel.app/**
