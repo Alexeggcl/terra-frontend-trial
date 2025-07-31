@@ -291,3 +291,55 @@ To control Lottie animations in a scalable and maintainable way, a system was im
 ### Reasoning
 - This approach keeps the code clean, scalable, and easy to maintain.
 - It allows for multiple animations and controls without conflicts or hardcoded dependencies.
+
+## Task 7 - Accessibility Implementation
+
+### Analysis
+The original website lacked proper accessibility features, making it difficult or impossible for users with disabilities to navigate and interact with the content. This included missing alternative text for images, poor keyboard navigation, and inadequate support for screen readers.
+
+### Solution
+I implemented comprehensive accessibility improvements following WCAG 2.1 AA guidelines:
+
+#### Visual Accessibility
+- **Image Descriptions**: Added meaningful alternative text to all images, allowing screen readers to describe visual content to users who can't see it
+- **Color and Contrast**: Ensured all text meets minimum contrast requirements for readability
+- **Focus Indicators**: Made it clear which element is currently selected when navigating with a keyboard
+
+#### Navigation and Interaction
+- **Keyboard Support**: Made every interactive element accessible using only a keyboard (no mouse required)
+- **Logical Tab Order**: Ensured users can navigate through the page in a sensible sequence
+- **No Keyboard Traps**: Users can always move forward or backward through the interface without getting stuck
+
+#### Screen Reader Support
+- **Semantic Structure**: Used proper HTML headings and landmarks so screen readers can understand page organization
+- **ARIA Labels**: Added descriptive labels for complex interface elements like accordions and animations
+- **Live Announcements**: Important changes (like accordion opening/closing) are announced to screen reader users
+
+#### Interactive Elements
+- **Clear Labels**: All buttons and form elements have descriptive names that explain their purpose
+- **Status Updates**: Users are informed when something changes on the page (like animations starting or stopping)
+- **Predictable Behavior**: Interface elements behave consistently and don't cause unexpected changes
+
+## Task 8 - Performance Optimization
+
+### Analysis
+The initial website had several performance bottlenecks that could slow down loading times and user experience. Large image files, unoptimized JavaScript bundles, and inefficient CSS delivery were causing slower page loads, especially on mobile devices and slower internet connections.
+
+### Solution
+I implemented a comprehensive performance optimization strategy:
+
+#### Code Optimization
+- **JavaScript Minification**: Compressed JavaScript files to reduce their size by removing unnecessary spaces and characters
+- **Smart Code Splitting**: Separated large external libraries (like GSAP and Lottie) from the main application code, allowing browsers to cache them independently
+- **CSS Optimization**: Streamlined stylesheets and embedded small CSS files directly into HTML to reduce server requests
+
+#### Image Optimization
+- **Modern Image Formats**: Converted images to WebP format, which provides better compression than traditional JPEG/PNG while maintaining quality
+- **Responsive Images**: Created multiple image sizes for different screen resolutions, ensuring mobile users don't download oversized desktop images
+- **Smart Loading Strategy**: Implemented priority loading for images visible immediately when the page loads, while delaying others until needed
+- **Lazy Loading**: Images outside the initial viewport load only when users scroll near them, reducing initial page load time
+
+#### Loading Strategy
+- **Critical Resource Prioritization**: Ensured essential content loads first, allowing users to see and interact with the page faster
+- **Progressive Enhancement**: Built the site to work on slower connections while providing enhanced features for faster ones
+- **Efficient Resource Management**: Reduced the number of server requests and optimized the timing of when resources load

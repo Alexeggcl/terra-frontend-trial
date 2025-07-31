@@ -1,14 +1,10 @@
-
 @use "sass:map";
 @use './reset/reset.scss';
 @use './terraStyle.scss';
 
-// variables scss, use it always as map.get($color-options, {letter});
 $color-a: #0f0f0f;
 $color-b: #fefefe;
 $color-c: #f7f8f4;
-
-/* Accent Color */
 $color-d: #7ce55e;
 $color-e: #189b5c;
 $color-f: #3d9dd8;
@@ -35,8 +31,8 @@ $colorbg-options: (
     d: $color-d,
 );
 
-// Measure
-$measure: 0.5rem; /* 0.5rem = 8px */
+$measure: 0.5rem;
+/* 0.5rem = 8px */
 
 .roboto {
     font-family: "Roboto", sans-serif;
@@ -46,7 +42,6 @@ $measure: 0.5rem; /* 0.5rem = 8px */
     font-size: 16px
 }
 
-// Accessibility utilities
 .u--sr-only {
     position: absolute !important;
     width: 1px !important;
@@ -59,34 +54,12 @@ $measure: 0.5rem; /* 0.5rem = 8px */
     border: 0 !important;
 }
 
-.u--skip-link {
-    position: absolute;
-    top: -40px;
-    left: 6px;
-    background: map.get($color-options, f);
-    color: map.get($color-options, b);
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 4px;
-    z-index: 9999;
-    font-weight: 600;
-    font-size: 14px;
-    
-    &:focus {
-        top: 6px;
-        outline: 3px solid map.get($color-options, a);
-        outline-offset: 2px;
-    }
-}
-
-// Focus styles for better accessibility
 :focus-visible {
     outline: 2px solid map.get($color-options, f) !important;
     outline-offset: 2px !important;
     border-radius: 2px;
 }
 
-// High contrast focus for buttons
 button:focus-visible,
 [role="button"]:focus-visible {
     outline: 3px solid map.get($color-options, f) !important;
@@ -94,7 +67,6 @@ button:focus-visible,
     box-shadow: 0 0 0 5px rgba(map.get($color-options, f), 0.2);
 }
 
-// Ensure interactive elements have minimum touch target size (44x44px minimum)
 button,
 [role="button"],
 [tabindex]:not([tabindex="-1"]) {
@@ -102,8 +74,8 @@ button,
     min-width: 44px;
 }
 
-// Reduce motion for users who prefer it
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -118,29 +90,27 @@ html {
     font-size: 16px
 }
 
-.f--font-a2{
-    font-size:50px;
+.f--font-a2 {
+    font-size: 50px;
 }
 
-.f--font-b2{
+.f--font-b2 {
     font-size: 35px;
 }
 
-.f--font-c2{
+.f--font-c2 {
     font-size: 25px;
 }
 
-
-
-
-body{
-    overflow:scroll!important;
+body {
+    overflow: scroll !important;
     @extend .roboto;
-    color:map.get($color-options, a);
-    line-height: 1.4;;
+    color: map.get($color-options, a);
+    line-height: 1.4;
+    ;
 }
 
-.c--preloader-a{
+.c--preloader-a {
     background-color: map.get($color-options, b);
     position: fixed;
     top: 0;
@@ -157,27 +127,30 @@ body{
 }
 
 
-.c--header-a{
+.c--header-a {
     position: fixed;
     top: $measure*2;
     left: 0;
     width: 100%;
     z-index: 20;
-    &__wrapper{
+
+    &__wrapper {
         background-color: map.get($color-options, b);
         text-align: center;
         border-radius: 8px;
-        padding:$measure*2 $measure*4;
+        padding: $measure*2 $measure*4;
     }
 }
 
-.c--page-a{
-    position:relative;
-    &__ft-items{
+.c--page-a {
+    position: relative;
+
+    &__ft-items {
         position: relative;
         z-index: 10;
     }
-    &__bg-items{
+
+    &__bg-items {
         position: fixed;
         top: 0;
         left: 0;
@@ -187,13 +160,14 @@ body{
     }
 }
 
-.c--hero-a{
+.c--hero-a {
     background-color: map.get($color-options, e);
-    height:60vh;
+    height: 60vh;
     display: flex;
-    width:100%;
+    width: 100%;
     align-items: center;
-    &__title{
+
+    &__title {
         @extend .f--font-a2;
         text-align: center;
         color: map.get($color-options, b);
@@ -202,73 +176,69 @@ body{
 
 
 .c--accordion-a {
-  &__item {
-    &__hd {
-      padding: $measure * 2 0;
-      color: map.get($color-options, a);
-      border-bottom: 1px solid #fff;
-      width: 100%;
-      text-align: left;
-      @extend .f--font-c2;
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between;
-      padding-right: 15px; 
-      box-sizing: border-box;
-      background: none;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.3s ease;
+    &__item {
+        &__hd {
+            padding: $measure * 2 0;
+            color: map.get($color-options, a);
+            border-bottom: 1px solid #fff;
+            width: 100%;
+            text-align: left;
+            @extend .f--font-c2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 15px;
+            box-sizing: border-box;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
 
-      // Accessibility improvements
-      &:hover {
-        background-color: rgba(map.get($color-options, f), 0.1);
-      }
+            &:hover {
+                background-color: rgba(map.get($color-options, f), 0.1);
+            }
 
-      &:focus-visible {
-        background-color: rgba(map.get($color-options, f), 0.15);
-        outline: 2px solid map.get($color-options, f);
-        outline-offset: 2px;
-      }
+            &:focus-visible {
+                background-color: rgba(map.get($color-options, f), 0.15);
+                outline: 2px solid map.get($color-options, f);
+                outline-offset: 2px;
+            }
 
-      // Text wrapper for flex layout
-      &__text {
-        flex-grow: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+            &__text {
+                flex-grow: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
 
-      &__artwork {
-        flex-shrink: 0; 
-        margin-left: 10px; 
-        transform: translateY(0px) scale(1.8) rotate(0deg); 
-        pointer-events: none;
-        transition: transform 0.3s;
-      }
+            &__artwork {
+                flex-shrink: 0;
+                margin-left: 10px;
+                transform: translateY(0px) scale(1.8) rotate(0deg);
+                pointer-events: none;
+                transition: transform 0.3s;
+            }
+        }
+
+        &__bd {
+            padding: $measure * 2;
+            border-radius: 4px;
+            margin-top: $measure;
+
+            &:focus-within {
+                outline: 1px solid map.get($color-options, f);
+                outline-offset: 2px;
+            }
+        }
     }
-
-    // Improved content panel accessibility
-    &__bd {
-      padding: $measure * 2;
-      border-radius: 4px;
-      margin-top: $measure;
-      
-      // Focus within for better keyboard navigation
-      &:focus-within {
-        outline: 1px solid map.get($color-options, f);
-        outline-offset: 2px;
-      }
-    }
-  }
 }
 
 .c--accordion-a__item__hd--is-active .c--accordion-a__item__hd__artwork {
-  transform: translateY(0px) scale(1.8) rotate(180deg);
+    transform: translateY(0px) scale(1.8) rotate(180deg);
 }
 
-.c--btn-a{
+.c--btn-a {
     display: inline-block;
     background-color: map.get($color-options, d);
     color: map.get($color-options, b);
@@ -280,43 +250,37 @@ body{
     border: none;
     cursor: pointer;
     position: relative;
-    
-    // Ensure minimum touch target size
     min-height: 44px;
     min-width: 44px;
-    
-    // Improved focus styles
+
     &:focus-visible {
         outline: 3px solid map.get($color-options, a);
         outline-offset: 2px;
         box-shadow: 0 0 0 5px rgba(map.get($color-options, d), 0.3);
     }
-    
-    &:hover{
+
+    &:hover {
         border-radius: 10px;
         background-color: rgba(map.get($color-options, d), 0.8);
         transform: translateY(-1px);
     }
-    
-    // Active state
+
     &:active {
         transform: translateY(0);
     }
-    
-    // Pressed state for toggle buttons
+
     &[aria-pressed="true"] {
         background-color: map.get($color-options, e);
         color: map.get($color-options, a);
-        
+
         &:hover {
             background-color: rgba(map.get($color-options, e), 0.8);
         }
     }
-    
-    // High contrast mode support
+
     @media (prefers-contrast: high) {
         border: 2px solid currentColor;
-        
+
         &:focus-visible {
             outline: 3px solid;
             outline-offset: 3px;
@@ -324,8 +288,8 @@ body{
     }
 }
 
-.c--lottie-a{
-    height:300px;
+.c--lottie-a {
+    height: 300px;
     width: 100%;
 }
 
@@ -410,19 +374,11 @@ body{
     display: flex;
     align-items: end;
     padding: clamp(8px, 2vw, 24px);
-    
-    // Accessibility improvements
+
     &:focus-visible {
         outline: 3px solid map.get($color-options, a);
         outline-offset: 2px;
         z-index: 10;
-    }
-    
-    // Hover state for better interactivity feedback
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
     }
 }
 
@@ -443,8 +399,8 @@ body{
 }
 
 .c--component-a__box--green-light {
-    width: 23%; 
-    height: 39.22%; 
+    width: 23%;
+    height: 39.22%;
     left: 0%;
     top: 0%;
     background: map.get($color-options, d);
@@ -452,7 +408,7 @@ body{
 
 .c--component-a__box--green-dark {
     width: 74.33%;
-    height: 68.07%; 
+    height: 68.07%;
     left: calc(23% + var(--gap));
     top: 0%;
     background: map.get($color-options, e);
@@ -466,54 +422,52 @@ body{
     mask:
         calc(100% - var(--_d) - var(--x)) 100% var(--_m),
         100% calc(100% - var(--_d) - var(--y)) var(--_m),
-        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-         calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
+        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
         var(--_g) calc(-1*var(--_d) - var(--x)) 0,
         var(--_g) 0 calc(-1*var(--_d) - var(--y));
     mask-repeat: no-repeat;
 }
 
 .c--component-a__box--blue {
-    width: 33.5%; 
+    width: 33.5%;
     height: 67.37%;
     left: 3.5%;
     top: 38.1%;
     background: map.get($color-options, f);
-    
+
     --r: clamp(1px, 2vw, 24px);
     --s: clamp(1px, 2vw, 24px);
     --x: clamp(1px, 11.35vw, 159px);
     --y: clamp(1px, 11.35vw, 159px);
-    
+
     --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
     --_g: conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)), #0000 25%, #000 0);
     --_d: (var(--s) + var(--r));
-    
+
     mask:
         calc(100% - var(--_d) - var(--x)) 100% var(--_m),
         100% calc(100% - var(--_d) - var(--y)) var(--_m),
-        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-         calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
+        radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
         var(--_g) calc(-1*var(--_d) - var(--x)) 0,
         var(--_g) 0 calc(-1*var(--_d) - var(--y));
     mask-repeat: no-repeat;
 
     transform: rotate(270deg);
     writing-mode: vertical-lr;
-    
+
 }
 
 .c--component-a__box--yellow {
     width: 23%;
-    height: 27.45%; 
-    left: calc(40.08% + var(--gap)); 
-    top: calc(68.07% + var(--gap)); 
-    background: map.get($color-options, g); 
+    height: 27.45%;
+    left: calc(40.08% + var(--gap));
+    top: calc(68.07% + var(--gap));
+    background: map.get($color-options, g);
 }
 
 .c--component-a__box--pink {
-    width: 31.58%; 
-    height: 71.43%; 
+    width: 31.58%;
+    height: 71.43%;
     left: calc(65.75% + var(--gap));
     top: calc(24.09% + var(--gap));
     background: map.get($color-options, i);
@@ -527,9 +481,10 @@ body{
     @extend .u--pb-tablets-10;
     @extend .u--pt-mobile-4;
     @extend .u--pb-mobile-5;
-    
+
     @media (max-width: 580px) {
-        overflow-x: hidden; 
+        overflow-x: hidden;
+
         .f--col-12.u--pr-mobile-0.u--pl-mobile-0.u--mb-8 {
             position: relative;
             height: 300px;
