@@ -193,7 +193,7 @@ body {
             border: none;
             cursor: pointer;
             border-radius: 4px;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
 
             &:hover {
                 background-color: rgba(map.get($color-options, f), 0.1);
@@ -210,6 +210,7 @@ body {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                 pointer-events: none;
             }
 
             &__artwork {
@@ -225,6 +226,8 @@ body {
             padding: $measure * 2;
             border-radius: 4px;
             margin-top: $measure;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
 
             &:focus-within {
                 outline: 1px solid map.get($color-options, f);
@@ -236,6 +239,21 @@ body {
 
 .c--accordion-a__item__hd--is-active .c--accordion-a__item__hd__artwork {
     transform: translateY(0px) scale(1.8) rotate(180deg);
+}
+
+// Estados adicionales para Collapsify
+.c--accordion-a__item__bd {
+    &[data-collapsify-content] {
+        overflow: hidden !important;
+        transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    
+    &[data-collapsify-content][style*="height: 0"] {
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+    }
 }
 
 .c--btn-a {
